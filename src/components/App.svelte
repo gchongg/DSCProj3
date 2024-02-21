@@ -157,6 +157,28 @@
   }
 </script>
 
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+  h1 {font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    line-height: 2;
+    font-size: 24px;
+    color: var(--color-text);
+    justify-content: center;
+  }
+  main {
+    text-align: center;
+    font-family: 'Nunito';
+    font-weight: 400;
+    line-height: 0;
+    font-size: 16px;
+    color: var(black);
+    justify-content: right;
+  }
+</style>
+
 <main>
   <svg width="1000" height="500"></svg>
   <div class="overlay">

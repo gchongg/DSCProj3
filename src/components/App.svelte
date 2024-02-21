@@ -45,8 +45,8 @@
       .translate([width/2 , height/2]);
 
     // Color scale
-    colorScale = d3.scaleThreshold()
-      .domain([10,20,30,40,50,60,70,80,90])
+    colorScale = d3.scaleQuantize()
+      .domain([0,100])
       .range(d3.schemeBlues[9]);
 
     // Draw the map
@@ -92,7 +92,40 @@
             });
           svg.call(zoomFunction);
       };
-  });
+
+    colorScale = d3.scaleQuantize()
+      .domain([0,100])
+      .range(d3.schemeBlues[9]);
+//Legend
+    const legend = svg.append("g")
+                  .attr("transform", "translate(20, 20)");
+    const legendScale = d3.scaleLinear()
+                        .domain([0, 100])
+                        .range([0, 200]);
+    const legendAxis = d3.axisBottom(legendScale)
+                        .tickValues(colorScale.domain())
+                        .tickFormat(d3.format(".0f"));
+
+    legend.append("g")
+      .call(legendAxis)
+      .select(".domain")
+      .remove();
+
+    legend.selectAll("rect")
+      .data(colorScale.range().map(color => {
+        const d = colorScale.invertExtent(color);
+        if (d[0] == null) d[0] = legendScale.domain()[0];
+        if (d[1] == null) d[1] = legendScale.domain()[1];
+        return d;
+      }))
+      .enter()
+      .append("rect")
+      .attr("height", 8)
+      .attr("x", d => legendScale(d[0]))
+      .attr("width", d => legendScale(d[1]) - legendScale(d[0]))
+      .attr("fill", d => colorScale(d[0]));
+    });
+
 
   // Reactive statement moved to top-level
   $: {

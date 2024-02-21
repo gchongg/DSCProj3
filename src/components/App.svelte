@@ -10,6 +10,20 @@
   let countryISO_map = new Map();
   let selectedYear = 2010; // Default year
 
+  colorScale = d3.scaleThreshold()
+      .domain(d3.range(0, 110, 10))
+      .range(["rgb(247,251,255)",
+              "rgb(222,235,247)",
+              "rgb(198,219,239)",
+              "rgb(158,202,225)",
+              "rgb(107,174,214)",
+              "rgb(66,146,198)",
+              "rgb(33,113,181)",
+              "rgb(8,81,156)",
+              "rgb(8,48,107)",
+              "rgb(0,0,80)",
+              "rgb(3,19,43)"]);
+
   onMount(async () => {
     // Fetch data
     const [geoJSON] = await Promise.all([
@@ -45,9 +59,7 @@
       .translate([width/2 , height/2]);
 
     // Color scale
-    colorScale = d3.scaleQuantize()
-      .domain([0,100])
-      .range(d3.schemeBlues[9]);
+
 
     // Draw the map
     svg.append("g")
@@ -93,9 +105,6 @@
           svg.call(zoomFunction);
       };
 
-    colorScale = d3.scaleQuantize()
-      .domain([0,100])
-      .range(d3.schemeBlues[9]);
 //Legend
     const legend = svg.append("g")
                   .attr("transform", "translate(20, 20)");

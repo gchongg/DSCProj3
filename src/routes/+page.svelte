@@ -7,6 +7,7 @@
 <App />
 
 <main> 
+  <h2> Writeup</h2>
   <p>
     Regarding our dataset, our team has selected an Internet usage database maintained by the Development Data Section of the Development Data and Outreach Branch within the Statistics Division of the Department of Economic and Social Affairs (UN DESA) of the UN Secretariat. The data in .csv format is available <a href="https://raw.githubusercontent.com/dsc-courses/dsc106-wi24/gh-pages/resources/data/Internet_data.csv">here</a>.
     To visualize this data, our goal was to effectively represent the percentages of internet usage data for each region/country available in our dataset by using a choropleth map. Initially, we explored the possibility of using circle markers with gradient colors to encode the percentages in each respective region. However, we faced challenges when trying to implement the circle markers. Due to time constraints, we decided to use a gradient scale for the entire region instead. This allows us to convey the variation of percentages over the years in a simple yet effective way.
@@ -14,6 +15,11 @@
     Another feature we added is the ability to zoom in and out, allowing for a better view of smaller regions on our world map. We also added a hover to display each country’s name as well as its usage.
     During the development process, we split the work into different meeting sessions. Each team member contributed approximately 9-12 hours to develop the project. This includes the time spent on dataset exploration, importing the data, troubleshooting, creating the choropleth map, and working on the write-up.
     The aspect that took the most time during the development process was troubleshooting and resolving issues related to creating the choropleth map using Svelte and D3. We initially started with a different dataset that had a unique geoJSON file, which caused a lot of trouble. Eventually, we switched to using the Internet usage dataset, which required additional adjustments and modifications.
+  </p>
+    The work was split evenly among all members. Each member contributed approximately 9-12 hours to developing the project. This includes the time spent on dataset exploration, importing the data, troubleshooting, creating the choropleth map, and working on the write-up. The aspect that took the most time during the development process was troubleshooting and resolving issues related to creating the choropleth map using Svelte and D3. We initially started with a different dataset that had a unique geoJSON file, which caused a lot of trouble. Eventually, we switched to using the Internet usage dataset, which required additional adjustments and modifications.
+  <p>
+    
+
   </p>
 </main>
 

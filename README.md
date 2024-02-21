@@ -1,4 +1,4 @@
-# create-svelte
+# Create-svelte
 
 ## Generate static site using svelte SSG
 

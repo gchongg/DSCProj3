@@ -82,7 +82,16 @@
       .append("title").text(function(d) { 
         return `${ d.properties.name } \n Estimated Percentage of Indviduals using the Internet: ${data.get(selectedYear).get(d.id)} `
       });
-    
+      const zoom = true;
+      if (zoom) {
+        var zoomFunction = d3.zoom()
+            .scaleExtent([1, 8])
+            .on('zoom', function(event) {
+              svg.selectAll('path')
+              .attr('transform', event.transform);
+            });
+          svg.call(zoomFunction);
+      };
   });
 
   // Reactive statement moved to top-level

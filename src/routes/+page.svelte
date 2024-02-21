@@ -6,6 +6,7 @@
 
 <App />
 
+<body> 
 <main> 
   <h2> Writeup</h2>
   <p>
@@ -22,9 +23,14 @@
 
   </p>
 </main>
+</body>
 
 
 <style>
+  body {
+    background-color: #f0f0f0; /* Set your desired background color */
+  }
+
   h1 {
       text-align: center;
       font-family: 'Roboto', sans-serif; /* Using Roboto font */

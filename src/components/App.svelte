@@ -33,8 +33,6 @@
       }
     });
 
-    console.log(countryISO_map);
-    console.log(data);
     // Setup SVG
     svg = d3.select("svg");
     var width = +svg.attr("width"), 
@@ -80,7 +78,11 @@
           .duration(200)
           .style("opacity", 0.8)
           .style("stroke", "transparent");
+      })
+      .append("title").text(function(d) { 
+        return `${ d.properties.name } \n Estimated Percentage of Indviduals using the Internet: ${data.get(selectedYear).get(d.id)} `
       });
+    
   });
 
   // Reactive statement moved to top-level
@@ -92,11 +94,15 @@
 
   // Function to update the map
   function updateMap() {
-    svg.selectAll("path")
-      .attr("fill", d => {
-        const total = data.get(selectedYear).get(d.id) || 0;
-        return colorScale(total);
-      });
+  svg.selectAll("path")
+    .attr("fill", d => {
+      const total = data.get(selectedYear).get(d.id) || 0;
+      return colorScale(total);
+    })
+    .select("title") // Select existing title element
+    .text(function(d) { 
+      return `${ d.properties.name } \n Estimated Percentage of Individuals using the Internet: ${data.get(selectedYear).get(d.id)} `
+    });
   }
 </script>
 

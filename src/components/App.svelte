@@ -129,7 +129,7 @@
       }))
       .enter()
       .append("rect")
-      .attr("height", 8)
+      .attr("height", 6)
       .attr("x", d => legendScale(d[0]))
       .attr("width", d => legendScale(d[1]) - legendScale(d[0]))
       .attr("fill", d => colorScale(d[0]));
